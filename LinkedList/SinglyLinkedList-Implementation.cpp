@@ -40,6 +40,19 @@ void display(node* head){
     cout<<"NULL"<<endl;
 }
 
+//this is function for searching key using linearSearch
+
+bool linearSearch(node* head,int key){
+    node* temp = head;
+    while(temp != NULL){
+        if(temp->data == key){
+            return true;
+        }
+        temp = temp->next;
+    }
+    return false;
+}
+
 int main(){
     node* head = NULL;        
     insertAtTail(head,1);
@@ -51,6 +64,7 @@ int main(){
     display(head);
     insertAtHead(head,7);
     display(head);
+    cout<<linearSearch(head,4)<<endl;
     
     return 0;
 }
