@@ -30,6 +30,31 @@ void insertAtTail(node* &head,int val){
     }
     temp->next = n;
 }
+// this function use for delete only head
+void deleteAtHead(node* &head){
+    node* todelete = head;
+    head = head->next;
+    delete todelete;
+}
+//and this fuction we use to delete at tail and mid element of linked list
+void deleteAtTail(node* &head,int val){
+    if(head == NULL){
+        cout<<"List is empty"<<endl;
+        return;
+    }
+    else if(head->next == NULL){
+        cout<<"List is now empty"<<endl;
+        deleteAtHead(head);
+        return;
+    }
+    node* temp = head;
+    while(temp->next->data != val){
+        temp = temp ->next;
+    }
+    node* todelete = temp -> next;
+    temp -> next = temp -> next -> next;
+    delete todelete;
+}
 
 void display(node* head){
     node* temp = head;
@@ -62,9 +87,10 @@ int main(){
     insertAtTail(head,5);
     insertAtTail(head,6);
     display(head);
-    insertAtHead(head,7);
+    deleteAtHead(head);
     display(head);
-    cout<<linearSearch(head,4)<<endl;
+    deleteAtTail(head,);
+    display(head);
     
     return 0;
 }
