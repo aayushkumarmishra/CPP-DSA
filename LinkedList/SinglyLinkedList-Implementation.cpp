@@ -11,6 +11,12 @@ class node{
         next = NULL;
     }
 };
+//this is fuction to add node on had
+void insertAtHead(node* &head,int val){
+    node* n = new node(val);
+    n->next = head;
+    head = n;
+}
 
 void insertAtTail(node* &head,int val){
     node* n = new node(val);
@@ -42,6 +48,8 @@ int main(){
     insertAtTail(head,4);
     insertAtTail(head,5);
     insertAtTail(head,6);
+    display(head);
+    insertAtHead(head,7);
     display(head);
     
     return 0;
