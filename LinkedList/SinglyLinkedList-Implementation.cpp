@@ -78,6 +78,21 @@ bool linearSearch(node* head,int key){
     return false;
 }
 
+// this fuction is used to revers our singly linked list...
+//and this is a iterative method
+node* reverse(node* &head) {
+    node* prevptr = NULL;
+    node* curptr = head;
+    node* nextptr;
+    while(curptr != NULL){
+        nextptr = curptr ->next;
+        curptr -> next = prevptr;
+        prevptr = curptr;
+        curptr = nextptr;
+    }
+    return prevptr;
+}
+
 int main(){
     node* head = NULL;        
     insertAtTail(head,1);
@@ -87,10 +102,8 @@ int main(){
     insertAtTail(head,5);
     insertAtTail(head,6);
     display(head);
-    deleteAtHead(head);
-    display(head);
-    deleteAtTail(head,);
-    display(head);
+    node* newhead = reverse(head);
+    display(newhead);
     
     return 0;
 }
