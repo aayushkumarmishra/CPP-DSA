@@ -104,6 +104,26 @@ node* reverseRecursive(node* &head) {
     return newhead;
 }
 
+
+//this function is used to solve K-node problem in linked list
+node* reversek(node* &head,int k){
+    node* curptr = head;
+    node* prevptr = NULL;
+    node* nextptr;
+    int count = 0;
+    while(curptr != NULL && count < k){
+        nextptr = curptr -> next;
+        curptr ->next = prevptr;
+        prevptr = curptr;
+        curptr = nextptr;
+        count++;
+    }
+    if(nextptr!= NULL){
+        head ->next = reversek(nextptr,k);
+    }
+    return prevptr; 
+}
+
 int main(){
     node* head = NULL;        
     insertAtTail(head,1);
@@ -113,7 +133,8 @@ int main(){
     insertAtTail(head,5);
     insertAtTail(head,6);
     display(head);
-    node* newhead = reverseRecursive(head);
+    int k=2;
+    node* newhead = reversek(head,k);
     display(newhead);
     
     return 0;
