@@ -60,9 +60,9 @@ int main()
     cout << "Size :" << v.size() << endl;
     
 
-    // this another and safer way to get the vector element (at is fuction to get value at any index)
+    // this is another and safer way to get the vector element (at is fuction to get value at any index)
     cout << v.at(0) << endl;
-    // this doest give any garbage vale its gives you warning so thats why it is safer than index method
+    // this doest give any garbage vale. It's gives you warning, so thats why it is safer than index method
     cout << v.at(6) << endl;
     */
     
